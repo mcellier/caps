@@ -22,13 +22,12 @@ html(lang='fr')
   body
     header
       img(src="/logo.svg", width="100px", alt="")
-      div
-        div(class="title")
-          h1 Ma collec'
-          h2 #{total} capsules, #{countries} pays
-        div(class="search")
-          input(type="text", name="search", onkeyup="search()", placeholder="Filtrer par nom, brasserie ou mot-clé", aria-label="Recherche")
-          a(class="hidden" onclick="clearSearch()" aria-label="Annuler la recherche") ×
+      div(class="title")
+        h1 Ma collec'
+        h2 #{total} capsules, #{countries} pays
+      div(class="search")
+        input(type="text", name="search", onkeyup="search()", placeholder="Filtrer par nom, brasserie ou mot-clé", aria-label="Recherche")
+        a(class="hidden" onclick="clearSearch()" aria-label="Annuler la recherche") ×
     main
       each country in caps
         div(class="country")

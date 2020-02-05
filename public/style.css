@@ -15,20 +15,6 @@
   display: none;
 }
 
-header {
-  display: flex;
-  align-items: center;
-}
-
-header img {
-  margin: 10px 30px 10px 10px;
-}
-
-header .title {
-  display: flex;
-  align-items: center;
-}
-
 header h1 {
   font-size: 2em;
 }
@@ -51,7 +37,7 @@ header .search {
 }
 
 header .search input {
-  width: 100%;
+  width: 350px;
   padding: 5px 20px 5px 10px;
   font-family: 'Bangers', cursive;
   font-size: 1em;
@@ -61,24 +47,51 @@ header .search input {
 
 header .search a {
   position: absolute;
-  right: 10px;
+  left: 330px;
   top: 0;
   line-height: 31px;
   cursor: pointer;
 }
 
+header {
+  min-height: 110px;
+  padding: 10px 0 10px 110px;
+}
+
+header img {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 80px;
+}
+
+header .title {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
 @media screen and (max-width: 768px) {
   header {
-    padding: 10px 0;
+    padding: 10px;
   }
 
   header img {
-    width: 50px;
+    width: 60px;
   }
 
   header .title {
     flex-direction: column;
-    align-items: left;
+    padding-left: 60px;
+  }
+
+  header .search input {
+    width: 100%;
+  }
+
+  header .search a {
+    left: auto;
+    right: 10px;
   }
 }
 

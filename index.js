@@ -12,7 +12,6 @@ app.set('view engine', 'pug')
 // TODO URL pushState (scroll, search)?
 // TODO drag & drop select?
 // TODO generate sw file to have the full list of things to cache?
-// TODO fix header on GS5
 // FIXME offline not working
 // TODO put somewhere online 
 // TODO put on github?
