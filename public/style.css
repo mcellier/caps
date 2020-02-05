@@ -1,0 +1,215 @@
+:root {
+  --main-bg-color: #F5CB70;
+  --main-color: #6b5931;
+  --text-color: #3B3B3B;
+
+  font-family: 'Bangers', cursive;
+  color: var(--text-color);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none;
+}
+
+header {
+  display: flex;
+  align-items: center;
+}
+
+header img {
+  margin: 10px 30px 10px 10px;
+}
+
+header .title {
+  display: flex;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 2em;
+}
+
+header h2 {
+  font-size: 1.5em;
+  display: inline-block;
+}
+
+header h2:before,
+header h2:after {
+  content: '-';
+  display: inline-block;
+  margin: 0 5px;
+}
+
+header .search {
+  position: relative;
+  margin: 10px 0 0 0;
+}
+
+header .search input {
+  width: 100%;
+  padding: 5px 20px 5px 10px;
+  font-family: 'Bangers', cursive;
+  font-size: 1em;
+  color: var(--main-color);
+  outline-color: var(--main-bg-color);
+}
+
+header .search a {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  line-height: 31px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    padding: 10px 0;
+  }
+
+  header img {
+    width: 50px;
+  }
+
+  header .title {
+    flex-direction: column;
+    align-items: left;
+  }
+}
+
+.country {
+  position: relative;
+}
+
+.country h2 {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--main-bg-color);
+  padding: 10px;
+  font-size: 1.5em;
+}
+
+ul {
+  padding: 10px;
+}
+
+li {
+  position: relative;
+  display: inline-block;
+  margin: 5px;
+  width: 100px;
+  height: 100px;
+}
+
+li.got-this-one:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 5px solid var(--main-color);
+}
+
+li div {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+li div img {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+li p {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  z-index: 2;
+  width: 160px;
+  padding: 10px;
+  text-align: center;
+  transform: translateX(-28px); /* just why? */
+}
+
+li p span {
+  display: block;
+}
+
+li p span:first-child:before,
+li p span:first-child:after {
+  content: '-';
+  display: inline-block;
+  margin: 0 5px;
+  flex: 0;
+}
+
+li p span:first-child {
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+li p span:last-child {
+  margin-top: 5px;
+  font-size: 0.8em;
+}
+
+/* http://www.cssarrowplease.com/ */
+li:hover p {
+  display: block;
+	background: var(--main-bg-color);
+	border: 4px solid var(--main-color);
+}
+li:hover p:after, li:hover p:before {
+	bottom: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+li:hover p:after {
+	border-color: rgba(245, 203, 112, 0);
+	border-bottom-color: #F5CB70;
+	border-width: 10px;
+	margin-left: -10px;
+}
+li:hover p:before {
+	border-color: rgba(107, 89, 49, 0);
+	border-bottom-color: var(--main-color);
+	border-width: 16px;
+	margin-left: -16px;
+}
+
+footer .got-these {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  background: var(--main-bg-color);
+  z-index: 3;
+  text-align: right;
+}
+
+footer .got-these a {
+  display: inline-block;
+  cursor: pointer;
+  padding: 5px;
+  margin-left: 10px;
+}
