@@ -35,7 +35,7 @@ html(lang='fr')
           ul
             each brewery in country.breweries 
               each beer in brewery.beers
-                li(onclick="toggleGotThisOne(this)")
+                li(onmouseup="toggleGotThisOne(this)")
                   div
                     img(src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==", data-src=beer.image, alt=beer.name + ', ' + brewery.name, onload="lzld(this)")
                   p 
