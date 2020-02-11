@@ -15,6 +15,7 @@ app.set('view engine', 'pug')
 // FIXME offline not working
 // TODO put somewhere online 
 // TODO put on github?
+// TODO world map?
 
 // Statics
 app.use(express.static(path.join(__dirname, 'public')))
