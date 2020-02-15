@@ -38,8 +38,27 @@ html(lang='fr')
                 li(onmouseup="toggleGotThisOne(this)", data-beer=beer.name, data-brewery=brewery.name, data-tags=beer.tags)
                   div
                     img(src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==", data-src=beer.image, alt=beer.name + ', ' + brewery.name, onload="lzld(this)")
+    aside.hidden
+      a(onclick="hideLegalMentions()" aria-label="Masquer les mentions légales") ×
+
+      h2 Mentions légales 
+      p. 
+        Ce site n'utilise pas de cookies. Aucune donnée privée n'est collectée.
+      p. 
+        Les logos, visuels et marques présents sur ce site sont la propriété de leur détenteur respectif. 
+      p.
+        Ce site est hébergé par <strong>GANDI SAS</strong>, Société par Actions Simplifiée au capital de 2 300 000 € ayant son siège social au 
+        63-65 boulevard Masséna à Paris (FRANCE), immatriculé au RCS de Paris sous le SIREN 423 093 459.
+      
+
+      h2 Crédits
+      p. 
+        Logo issue du domaine publique <a href="https://publicdomainvectors.org/fr/gratuitement-des-vecteurs/Chope-de-bi%C3%A8re-vecteur-une-image-clipart/77291.html">disponible en ligne</a>.
+      p. 
+        Plusieurs sites m'ont aidé à retrouver l'origine des capsules de ma collection, avec notamment <a href="http://fabscapscollection.free.fr/">FabsCapsCollection</a> et la <a href="https://caps.heb3.org/">collection de capsules de Mathieu</a>. 
     footer 
-      button(onclick="toggleSelectionMode(this)") Sélectionner et exporter les capsules
+      button(onclick="showLegalMentions()") Crédits
+      button(onclick="toggleSelectionMode(this)") Export
       p.got-these.hidden
         span
         a(onclick="clearGotThese()" aria-label="Déselectionner toutes les capsules") ×

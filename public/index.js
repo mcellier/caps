@@ -65,3 +65,11 @@ function clearSearch() {
   document.querySelector('.search input').value = ''
   search()
 }
+
+function showLegalMentions() {
+  document.querySelector('aside').classList.remove('hidden')
+}
+
+function hideLegalMentions() {
+  document.querySelector('aside').classList.add('hidden')
+}
