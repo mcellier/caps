@@ -35,13 +35,9 @@ html(lang='fr')
           ul
             each brewery in country.breweries 
               each beer in brewery.beers
-                li(onmouseup="toggleGotThisOne(this)")
+                li(onmouseup="toggleGotThisOne(this)", data-beer=beer.name, data-brewery=brewery.name, data-tags=beer.tags)
                   div
                     img(src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==", data-src=beer.image, alt=beer.name + ', ' + brewery.name, onload="lzld(this)")
-                  p 
-                    span #{beer.name}
-                    span #{brewery.name}
-                    span.hidden #{beer.tags}
     footer 
       p.got-these.hidden
         span

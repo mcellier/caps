@@ -16,6 +16,9 @@ app.set('view engine', 'pug')
 // TODO put somewhere online 
 // TODO put on github?
 // TODO world map?
+// TODO \n in data-attr
+// TODO put back an arrow for tooltips?
+// TODO fix cross on search field => should appear as long as the field isn't empty (F5?)
 
 // Statics
 app.use(express.static(path.join(__dirname, 'public')))

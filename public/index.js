@@ -35,7 +35,11 @@ function search() {
         })
     } else {
         document.querySelectorAll('li').forEach((element) => {
-            const match = element.querySelector('p').innerText.toLowerCase().includes(value);
+            const text = ''
+              + element.getAttribute('data-beer') 
+              + element.getAttribute('data-brewery') 
+              + element.getAttribute('data-tags') 
+            const match = text.toLowerCase().includes(value);
             element.classList.toggle(CLASSNAME_HIDDEN, !match);
         })
     }
