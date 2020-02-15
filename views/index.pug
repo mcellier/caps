@@ -39,6 +39,7 @@ html(lang='fr')
                   div
                     img(src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==", data-src=beer.image, alt=beer.name + ', ' + brewery.name, onload="lzld(this)")
     footer 
+      button(onclick="toggleSelectionMode(this)") Sélectionner et exporter les capsules
       p.got-these.hidden
         span
         a(onclick="clearGotThese()" aria-label="Déselectionner toutes les capsules") ×

@@ -2,11 +2,20 @@ if('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js');
 };
 
+let isSelectionModeOn = false
 const CLASSNAME_IS_CAP_SELECTED = 'got-this-one'
 const CLASSNAME_HAS_CAP_SELECTED = 'got-these'
 const CLASSNAME_HIDDEN = 'hidden'
 
+function toggleSelectionMode(el) {
+  isSelectionModeOn = true 
+  el.classList.toggle(CLASSNAME_HIDDEN, isSelectionModeOn)
+}
+
 function toggleGotThisOne(el) {
+    if (!isSelectionModeOn) {
+      return
+    }
     el.classList.toggle(CLASSNAME_IS_CAP_SELECTED);
     toggleGotThese();
 }
