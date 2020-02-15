@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "image:convert": "find . -name '*.png' -print0 | xargs -0 mogrify -format jpg && find . -name '*.png' -print0 | xargs -0 rm",
     "image:resize": "find . -name '*.jpg' -print0 | xargs -0 mogrify -resize 300",
-    "deploy": "git push gandi master && ssh 2709297@git.sd5.gpaas.net deploy default.git"
+    "deploy": "git push gandi master && ssh 2709297@git.sd5.gpaas.net deploy default.git && ssh 2709297@git.sd5.gpaas.net clean default.git"
   },
   "author": "",
   "license": "ISC",
