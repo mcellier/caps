@@ -5,7 +5,6 @@ var app = express()
 
 app.set('view engine', 'pug')
 
-// FIXME zindex tooltop
 // TODO css animations
 // TODO export
 // TODO update quantities per country in search
