@@ -57,8 +57,6 @@ function search() {
         const hasCaps = element.querySelectorAll(`li:not(.${CLASSNAME_HIDDEN})`).length;
         element.classList.toggle(CLASSNAME_HIDDEN, !hasCaps)
     })
-
-    document.querySelector('.search a').classList.toggle('hidden', !value)
 }
 
 function clearSearch() {

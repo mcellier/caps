@@ -63,11 +63,16 @@ header .search input {
 }
 
 header .search a {
+  display: none;
   position: absolute;
   left: 330px;
   top: 0;
   line-height: 31px;
   cursor: pointer;
+}
+
+header .search input:not(:placeholder-shown) + a {
+  display: inline-block;
 }
 
 header {
