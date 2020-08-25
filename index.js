@@ -9,11 +9,8 @@ app.set('view engine', 'pug')
 // TODO css animations
 // TODO export
 // TODO update quantities per country in search
-// TODO mentions légales
 // TODO generate sw file to have the full list of things to cache?
 // FIXME offline not working
-// TODO put somewhere online
-// TODO put on github?
 // TODO world map?
 // TODO \n in data-attr
 // TODO put back an arrow for tooltips?
