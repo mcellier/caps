@@ -12,7 +12,6 @@ app.set('view engine', 'pug')
 // TODO generate sw file to have the full list of things to cache?
 // FIXME offline not working
 // TODO world map?
-// TODO \n in data-attr
 // TODO put back an arrow for tooltips?
 // TODO hide brewery name if same than beer (generic)
 

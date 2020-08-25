@@ -174,14 +174,14 @@ li:hover:before {
   top: 100%;
   left: 50%;
   display: block;
-	background: var(--main-bg-color);
-	border: 4px solid var(--main-color);
-  content: attr(data-beer) " " attr(data-brewery);
+  background: var(--main-bg-color);
+  border: 4px solid var(--main-color);
+  content: attr(data-beer) "\00000a- " attr(data-brewery) " -";
   pointer-events: none;
   transform: translateX(-50%);
   padding: 5px 10px;
   text-align: center;
-  width: 120px;
+  white-space: pre;
 }
 
 aside {
