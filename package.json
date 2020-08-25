@@ -7,6 +7,7 @@
     "start": "node index.js",
     "start:dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node build.js",
     "image:convert": "find . -name '*.png' -print0 | xargs -0 mogrify -format jpg && find . -name '*.png' -print0 | xargs -0 rm",
     "image:resize": "find . -name '*.jpg' -print0 | xargs -0 mogrify -resize 300",
     "deploy": "git push gandi master && ssh 2709297@git.sd5.gpaas.net deploy default.git && ssh 2709297@git.sd5.gpaas.net clean default.git"
@@ -21,6 +22,8 @@
     "reset-css": "^5.0.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "fs-extra": "^9.0.1",
+    "nodemon": "^2.0.2",
+    "rimraf": "^3.0.2"
   }
 }

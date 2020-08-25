@@ -1,7 +1,8 @@
 var express = require('express')
-var glob = require('glob')
 var path = require('path')
 var app = express()
+
+var { getCaps } = require('./caps')
 
 app.set('view engine', 'pug')
 
@@ -9,11 +10,9 @@ app.set('view engine', 'pug')
 // TODO export
 // TODO update quantities per country in search
 // TODO mentions légales
-// TODO URL pushState (scroll, search)?
-// TODO drag & drop select?
 // TODO generate sw file to have the full list of things to cache?
 // FIXME offline not working
-// TODO put somewhere online 
+// TODO put somewhere online
 // TODO put on github?
 // TODO world map?
 // TODO \n in data-attr
@@ -27,50 +26,12 @@ app.use('/lazyload.js', express.static(path.join(__dirname, 'node_modules/lazylo
 app.use('/images', express.static(path.join(__dirname, 'images')))
 
 app.get('/', function (req, res) {
-    const images = glob.sync('images/**/**/*.*')
-    const caps = {}
-
-    images.forEach(image => {
-        const [ basePath, country, brewery, name ] = image.split('/')
-
-        if (!Object.keys(caps).includes(country)) {
-            caps[country] = {
-                name: country,
-                total: 0,
-                breweries: {},
-            }
-        }
-        if (!Object.keys(caps[country].breweries).includes(brewery)) {
-            caps[country].breweries[brewery] = {
-                name: brewery,
-                beers: [],
-            }
-        }
-
-        const cleanName = name && name.split('.').shift().replace(/\(.*\)$/, '').trim()
-        const tags = name && name.match(/\(.*\)/)
-        const cleanTags = tags && tags[0].replace('(', '').replace(')', '')
-
-        caps[country].total++
-        caps[country].breweries[brewery].beers.push({ 
-            image, 
-            name: cleanName,
-            tags: cleanTags,
-        })
-    })
-
-    //res.send(JSON.stringify(caps))
-
-    res.render('index', { 
-        caps,
-        total: images.length,
-        countries: Object.keys(caps).length - 1, // Remove unknown category
-    })
+    res.render('index', getCaps())
 })
 
 var server = app.listen(process.env.PORT, function () {
    var host = server.address().address
    var port = server.address().port
-   
+
    console.log("Example app listening at http://%s:%s", host, port)
 })
