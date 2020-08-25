@@ -8,7 +8,6 @@ app.set('view engine', 'pug')
 
 // TODO css animations
 // TODO export
-// TODO update quantities per country in search
 // TODO generate sw file to have the full list of things to cache?
 // FIXME offline not working
 // TODO world map?

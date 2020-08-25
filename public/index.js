@@ -8,7 +8,7 @@ const CLASSNAME_HAS_CAP_SELECTED = 'got-these'
 const CLASSNAME_HIDDEN = 'hidden'
 
 function toggleSelectionMode(el) {
-  isSelectionModeOn = true 
+  isSelectionModeOn = true
   el.classList.toggle(CLASSNAME_HIDDEN, isSelectionModeOn)
 }
 
@@ -45,17 +45,20 @@ function search() {
     } else {
         document.querySelectorAll('li').forEach((element) => {
             const text = ''
-              + element.getAttribute('data-beer') 
-              + element.getAttribute('data-brewery') 
-              + element.getAttribute('data-tags') 
+              + element.getAttribute('data-beer')
+              + element.getAttribute('data-brewery')
+              + element.getAttribute('data-tags')
             const match = text.toLowerCase().includes(value);
             element.classList.toggle(CLASSNAME_HIDDEN, !match);
         })
     }
 
     document.querySelectorAll('.country').forEach(element => {
-        const hasCaps = element.querySelectorAll(`li:not(.${CLASSNAME_HIDDEN})`).length;
-        element.classList.toggle(CLASSNAME_HIDDEN, !hasCaps)
+        const capsCount = element.querySelectorAll(`li:not(.${CLASSNAME_HIDDEN})`).length;
+        // Update country caps count
+        element.querySelector('h2').innerHTML = element.querySelector('h2').innerHTML.replace(/\(.*\)/, `(${capsCount})`);
+        // Hide country if no caps matching the search
+        element.classList.toggle(CLASSNAME_HIDDEN, capsCount === 0);
     })
 }
 
