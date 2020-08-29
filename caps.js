@@ -37,7 +37,7 @@ module.exports = {
     return {
       caps,
       total: images.length,
-      countries: Object.keys(caps).length - 1, // Remove unknown category
+      countries: Object.keys(caps).length - 2, // Remove unknown + non beer categories
     }
   }
 }
