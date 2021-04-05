@@ -1,6 +1,7 @@
 var express = require('express')
 var path = require('path')
 var app = express()
+var child_process = require('child_process')
 
 var { getCaps } = require('./caps')
 
@@ -29,4 +30,5 @@ var server = app.listen(process.env.PORT, function () {
    var port = server.address().port
 
    console.log("Example app listening at http://%s:%s", host, port)
+   child_process.exec(`open http://localhost:${port}`)
 })
