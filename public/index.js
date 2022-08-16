@@ -64,6 +64,7 @@ function search() {
 
 function clearSearch() {
   document.querySelector('.search input').value = ''
+  document.querySelector('.search input').focus()
   search()
 }
 

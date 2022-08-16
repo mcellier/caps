@@ -65,10 +65,12 @@ header .search input {
 header .search a {
   display: none;
   position: absolute;
-  left: 330px;
+  left: 318px;
   top: 0;
   line-height: 31px;
   cursor: pointer;
+  width: 31px;
+  text-align: center;
 }
 
 header .search input:not(:placeholder-shown) + a {
