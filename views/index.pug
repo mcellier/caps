@@ -1,66 +1,9 @@
 doctype html
 html(lang='fr')
-  head
-    title Mes capsules
-    meta(name="viewport" content="width=device-width, initial-scale=1")
+  include components/head.pug 
 
-    // https://realfavicongenerator.net/
-    link(rel="apple-touch-icon", sizes="180x180", href="apple-touch-icon.png")
-    link(rel="icon", type="image/png", sizes="32x32", href="favicon-32x32.png")
-    link(rel="icon", type="image/png", sizes="16x16", href="favicon-16x16.png")
-    link(rel="manifest", href="site.webmanifest")
-    link(rel="mask-icon", href="safari-pinned-tab.svg", color="#f5cb70")
-    meta(name="msapplication-TileColor", content="#f5cb70")
-    meta(name="theme-color", content="#f5cb70")
-
-    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Bangers&display=swap')
-    link(rel='stylesheet', href='reset.css')
-    link(rel='stylesheet', href='style.css')
-
-    script(src='lazyload.js')
-    script(src='index.js')
   body
-    header
-      img(src="logo.svg", width="100px", alt="")
-      div(class="title")
-        h1 Ma collec'
-        h2 #{total} capsules, #{countries} pays
-      div(class="search")
-        input(type="text", name="search", onkeyup="search()", placeholder="Filtrer par nom, brasserie ou mot-clé", aria-label="Recherche")
-        a(class="hidden" onclick="clearSearch()" aria-label="Annuler la recherche") ×
-    main
-      each country in caps
-        div(class="country", data-country=country.name)
-          h2 
-            button(onclick=`toggleCountry('${country.name}')`) #{country.name} (#{country.total})
-          ul
-            each brewery in country.breweries
-              each beer in brewery.beers
-                li(onmouseup="toggleGotThisOne(this)", data-beer=beer.name, data-brewery=brewery.name, data-tags=beer.tags)
-                  div
-                    img(src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==", data-src=beer.image, alt=beer.name + ', ' + brewery.name, onload="lzld(this)")
-    aside.hidden
-      a(onclick="hideLegalMentions()" aria-label="Masquer les mentions légales") ×
-
-      h2 Mentions légales
-      p.
-        Ce site n'utilise pas de cookies. Aucune donnée privée n'est collectée.
-      p.
-        Les logos, visuels et marques présents sur ce site sont la propriété de leurs détenteurs respectifs.
-      p.
-        Ce site est hébergé par <a href="netlify.com" title="Site de l'hébergeur"><strong>Netlify</strong></a>.
-
-
-      h2 Crédits
-      p.
-        Logo issu du domaine publique <a href="https://publicdomainvectors.org/fr/gratuitement-des-vecteurs/Chope-de-bi%C3%A8re-vecteur-une-image-clipart/77291.html" title="Lien vers le logo">disponible en ligne</a>.
-      p.
-        Les photos des capsules ont été prises par l'auteur de ce site. Libre à vous de les réutiliser.
-      p.
-        Le code source du site est disponible sur <a href="https://github.com/mcellier/caps" title="Code source du site">Github</a>
-    footer
-      button(onclick="showLegalMentions()") Crédits
-      // button(onclick="toggleSelectionMode(this)") Export
-      // p.got-these.hidden
-        // span
-        // a(onclick="clearGotThese()" aria-label="Déselectionner toutes les capsules") ×
+    include components/header.pug 
+    include components/caps.pug
+    include components/mentions.pug
+    include components/footer.pug

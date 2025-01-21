@@ -1,0 +1,12 @@
+main
+  each country in caps
+    div(class="country", data-country=country.name)
+      h2 
+        button(onclick=`toggleCountry('${country.name}')`) #{country.name} (#{country.total})
+      ul
+        each brewery in country.breweries
+          each beer in brewery.beers
+            li(onmouseup="toggleGotThisOne(this)", data-beer=beer.name, data-brewery=brewery.name, data-tags=beer.tags)
+              div
+                img(src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==", data-src=beer.image, alt=beer.name + ', ' + brewery.name, onload="lzld(this)")
+    
