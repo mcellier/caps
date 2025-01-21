@@ -56,7 +56,7 @@ function search() {
     document.querySelectorAll('.country').forEach(element => {
         const capsCount = element.querySelectorAll(`li:not(.${CLASSNAME_HIDDEN})`).length;
         // Update country caps count
-        element.querySelector('h2').innerHTML = element.querySelector('h2').innerHTML.replace(/\(.*\)/, `(${capsCount})`);
+        element.querySelector('h2 button').innerHTML = element.querySelector('h2 button').innerHTML.replace(/\(.*\)/, `(${capsCount})`);
         // Hide country if no caps matching the search
         element.classList.toggle(CLASSNAME_HIDDEN, capsCount === 0);
     })
