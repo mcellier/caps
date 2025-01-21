@@ -15,7 +15,7 @@ body {
   overflow-x: hidden;
 }
 
-button {
+footer button {
   background: var(--main-bg-color);
   padding: 5px 10px;
   border: 4px solid var(--main-color);
@@ -128,8 +128,26 @@ header .title {
   top: 0;
   z-index: 1;
   background: var(--main-bg-color);
-  padding: 10px;
   font-size: 1.5em;
+}
+
+.country h2 button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: transparent;
+  text-align: left;
+  border: none;
+  padding: 10px;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.country h2 button::after {
+  content: '↩';
+  display: inline-block;
 }
 
 ul {

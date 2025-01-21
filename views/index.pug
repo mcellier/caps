@@ -30,8 +30,9 @@ html(lang='fr')
         a(class="hidden" onclick="clearSearch()" aria-label="Annuler la recherche") ×
     main
       each country in caps
-        div(class="country")
-          h2 #{country.name} (#{country.total})
+        div(class="country", data-country=country.name)
+          h2 
+            button(onclick=`toggleCountry('${country.name}')`) #{country.name} (#{country.total})
           ul
             each brewery in country.breweries
               each beer in brewery.beers
