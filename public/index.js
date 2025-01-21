@@ -77,5 +77,5 @@ function hideLegalMentions() {
 }
 
 function toggleCountry(countryName) {
-  document.querySelector(`[data-country=${countryName}] ul`).classList.toggle(CLASSNAME_HIDDEN)
+  document.querySelector(`[data-country='${countryName}'] ul`).classList.toggle(CLASSNAME_HIDDEN)
 }
