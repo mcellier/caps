@@ -151,15 +151,17 @@ header .title {
 }
 
 ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));  
   padding: 10px;
+  gap: 10px;
 }
 
 li {
   position: relative;
   display: inline-block;
-  margin: 5px;
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
 }
 
 li.got-this-one:after {
