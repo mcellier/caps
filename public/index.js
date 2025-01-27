@@ -48,6 +48,7 @@ function search() {
               + element.getAttribute('data-beer')
               + element.getAttribute('data-brewery')
               + element.getAttribute('data-tags')
+              + element.getAttribute('data-country')
             const match = text.toLowerCase().includes(value);
             element.classList.toggle(CLASSNAME_HIDDEN, !match);
         })
