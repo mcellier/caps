@@ -110,11 +110,16 @@ header button.sort {
   font-family: inherit;
   font-size: 24px;
   cursor: pointer;
+  width: 80px;
+  text-align: right;
 }
 
 header button.sort:hover {
   color: var(--main-color);
 }
+header button.sort:focus {
+  color: inherit;
+} 
 
 @media screen and (max-width: 768px) {
   header {

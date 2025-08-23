@@ -29,7 +29,7 @@ function sortByCapsAsc(a, b) {
 }
 
 const SORT_OPTIONS = [sortByDefault, sortByCapsDesc, sortByCapsAsc]
-const SORT_LABELS = ['⮃ ABC', '↓ Caps', '↑ Caps']
+const SORT_LABELS = ['↑ ABC', '↓ Caps', '↑ Caps']
 let SORT_CURRENT = 0
 
 function updateButtonSortLabel() {
