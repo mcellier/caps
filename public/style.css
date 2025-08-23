@@ -82,6 +82,11 @@ header {
   padding: 10px 0 10px 110px;
 }
 
+header .titleContainer {
+  display: flex;
+  align-items: center;
+}
+
 header img {
   position: absolute;
   top: 10px;
@@ -91,8 +96,24 @@ header img {
 
 header .title {
   display: flex;
+  flex-grow: 1;
   align-items: center;
   margin-top: 10px;
+}
+
+header button.sort {
+  background: transparent;
+  text-align: left;
+  border: none;
+  color: inherit;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+header button.sort:hover {
+  color: var(--main-color);
 }
 
 @media screen and (max-width: 768px) {
@@ -117,6 +138,11 @@ header .title {
     left: auto;
     right: 10px;
   }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
 }
 
 .country {

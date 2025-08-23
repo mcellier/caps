@@ -1,6 +1,6 @@
 main
   each country in caps
-    div(class="country", data-country=country.name)
+    div(class="country", data-country=country.name, data-total=country.total)
       h2 
         button(onclick=`toggleCountry('${country.name}')`) #{country.name} (#{country.total})
       ul
