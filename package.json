@@ -16,7 +16,6 @@
     "build": "node build.js"
   },
   "dependencies": {
-    "express": "^4.18.1",
     "glob": "^8.0.3",
     "global": "^4.4.0",
     "lazyloadjs": "^3.2.2",
@@ -24,6 +23,7 @@
     "reset-css": "^5.0.1"
   },
   "devDependencies": {
+    "express": "^5.1.0",
     "fs-extra": "^10.1.0",
     "nodemon": "^2.0.19",
     "rimraf": "^3.0.2"
