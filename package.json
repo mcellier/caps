@@ -16,7 +16,7 @@
     "build": "node build.js"
   },
   "dependencies": {
-    "glob": "^8.0.3",
+    "glob": "^11.0.3",
     "global": "^4.4.0",
     "lazyloadjs": "^3.2.2",
     "pug": "^3.0.3",
