@@ -19,7 +19,7 @@
     "glob": "^8.0.3",
     "global": "^4.4.0",
     "lazyloadjs": "^3.2.2",
-    "pug": "^3.0.2",
+    "pug": "^3.0.3",
     "reset-css": "^5.0.1"
   },
   "devDependencies": {
