@@ -4,6 +4,12 @@ header
     div(class="title")
       h1 Ma collec'
       h2 #{total} capsules, #{countries} pays
+    select(id="theme-selector", onchange="setTheme(this.value)", title="Changer de thème")
+      option(value="blond") 🍺 Blonde
+      option(value="dark") 🍻 Brune
+      option(value="white") 🥛 Blanche
+      option(value="amber") 🧡 Ambrée
+      option(value="red") ❤️ Rousse
     button(class="sort", title="Trier", onclick="sort()") ↑ ABC
   div(class="search")
     input(type="text", name="search", onkeyup="search()", placeholder="Filtrer par nom, brasserie ou mot-clé", aria-label="Recherche")
