@@ -201,6 +201,7 @@ main {
   font-family: inherit;
   font-size: inherit;
   cursor: pointer;
+  color: var(--text-color);
 }
 
 .country h2 button::after {
