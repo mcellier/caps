@@ -85,6 +85,7 @@ header {
 header .titleContainer {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 header img {
@@ -145,6 +146,10 @@ header button.sort:focus {
 @media screen and (max-width: 768px) {
   header {
     padding: 10px;
+  }
+
+  header .titleContainer {
+    flex-direction: column;
   }
 
   header img {
