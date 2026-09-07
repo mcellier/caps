@@ -22,7 +22,8 @@ app.use('/lazyload.js', express.static(path.join(__dirname, 'node_modules/lazylo
 app.use('/images', express.static(path.join(__dirname, 'images')))
 
 app.get('/', function (req, res) {
-    res.render('index', getCaps())
+    // Pass production: false for dev mode
+    res.render('index', { ...getCaps(), production: false })
 })
 
 var server = app.listen(process.env.PORT, function () {
