@@ -1,6 +1,6 @@
 const pug = require('pug')
 const fs = require('fs-extra')
-const glob = require('glob')
+const { globSync } = require('glob')
 const rimraf = require('rimraf')
 const { minify } = require('oxc-minify')
 const { transform } = require('lightningcss')
@@ -84,7 +84,7 @@ async function build() {
   fs.copySync('public/js/sw.js', 'build/js/sw.js')
   
   // Copy other static files (except JS and CSS)
-  const statics = glob.sync('public/*').filter(f => !f.endsWith('.js') && !f.endsWith('.css'))
+  const statics = globSync('public/*').filter(f => !f.endsWith('.js') && !f.endsWith('.css'))
   statics.forEach(file => fs.copySync(file, `build/${file.replace('public/', '')}`))
   
   console.log('✓ Build complete!')

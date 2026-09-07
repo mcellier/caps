@@ -1,8 +1,8 @@
-var glob = require('glob')
+const { globSync } = require('glob')
 
 module.exports = {
   getCaps: () => {
-    const images = glob.sync('images/**/**/*.*', { nodir: true })
+    const images = globSync('images/**/**/*.*', { nodir: true })
     const caps = {}
 
     images.forEach(image => {
