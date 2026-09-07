@@ -11,9 +11,9 @@ async function minifyJS() {
   // Include lazyload first, then your app code
   const files = [
     'node_modules/lazyloadjs/build/lazyload.min.js',
-    'public/themes.js',
-    'public/index.js',
-    'public/sort.js'
+    'public/js/themes.js',
+    'public/js/index.js',
+    'public/js/sort.js'
   ]
   
   const concatenated = files
@@ -66,6 +66,7 @@ function minifyCSS() {
 async function build() {
   rimraf.sync('build')
   fs.mkdirSync('build')
+  fs.mkdirSync('build/js')
   
   // Render HTML in production mode
   const data = { ...getCaps(), production: true }
@@ -80,7 +81,7 @@ async function build() {
   minifyCSS()
   
   // Copy service worker separately (NEVER bundle SW!)
-  fs.copySync('public/sw.js', 'build/sw.js')
+  fs.copySync('public/js/sw.js', 'build/js/sw.js')
   
   // Copy other static files (except JS and CSS)
   const statics = glob.sync('public/*').filter(f => !f.endsWith('.js') && !f.endsWith('.css'))

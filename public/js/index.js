@@ -1,5 +1,5 @@
 if('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js');
+  navigator.serviceWorker.register('/js/sw.js');
 };
 
 const CLASSNAME_HIDDEN = 'hidden'
