@@ -3,6 +3,7 @@ const fs = require('fs-extra')
 const glob = require('glob')
 const rimraf = require('rimraf')
 const { minify } = require('oxc-minify')
+const { transform } = require('lightningcss')
 
 const { getCaps } = require('./caps')
 
@@ -34,6 +35,34 @@ async function minifyJS() {
   console.log(`✓ Minified JS: ${concatenated.length} → ${result.code.length} bytes (${Math.round((1 - result.code.length/concatenated.length) * 100)}% reduction)`)
 }
 
+function minifyCSS() {
+  // Concatenate reset.css + our component CSS files in order
+  const files = [
+    'node_modules/reset-css/reset.css',
+    'public/css/base.css',
+    'public/css/header.css',
+    'public/css/caps.css',
+    'public/css/mentions.css',
+    'public/css/footer.css'
+  ]
+  
+  const concatenated = files
+    .map(f => fs.readFileSync(f, 'utf8'))
+    .join('\n')
+  
+  const result = transform({
+    filename: 'style.css',
+    code: Buffer.from(concatenated),
+    minify: true,
+    targets: {
+      chrome: 95, // Modern browsers
+    }
+  })
+  
+  fs.writeFileSync('build/style.min.css', result.code)
+  console.log(`✓ Minified CSS: ${concatenated.length} → ${result.code.length} bytes (${Math.round((1 - result.code.length/concatenated.length) * 100)}% reduction)`)
+}
+
 async function build() {
   rimraf.sync('build')
   fs.mkdirSync('build')
@@ -43,16 +72,18 @@ async function build() {
   fs.writeFileSync('build/index.html', pug.renderFile('views/index.pug', data))
   
   fs.copySync('images', 'build/images')
-  fs.copySync('node_modules/reset-css/reset.css', 'build/reset.css')
   
   // Minify and concat JS (including lazyload)
   await minifyJS()
   
+  // Minify and concat CSS (including reset.css)
+  minifyCSS()
+  
   // Copy service worker separately (NEVER bundle SW!)
   fs.copySync('public/sw.js', 'build/sw.js')
   
-  // Copy other static files (except JS)
-  const statics = glob.sync('public/*').filter(f => !f.endsWith('.js'))
+  // Copy other static files (except JS and CSS)
+  const statics = glob.sync('public/*').filter(f => !f.endsWith('.js') && !f.endsWith('.css'))
   statics.forEach(file => fs.copySync(file, `build/${file.replace('public/', '')}`))
   
   console.log('✓ Build complete!')

@@ -25,6 +25,7 @@
   "devDependencies": {
     "express": "^5.1.0",
     "fs-extra": "^11.3.1",
+    "lightningcss": "^1.33.0",
     "nodemon": "^3.1.10",
     "oxc-minify": "^0.148.0",
     "rimraf": "^6.0.1"

@@ -12,10 +12,21 @@ head
     meta(name="theme-color", content="#f5cb70")
 
     link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Bangers&display=swap')
-    link(rel='stylesheet', href='reset.css')
-    link(rel='stylesheet', href='style.css')
+    
+    //- Dev mode: load individual CSS files
+    if !production
+        link(rel='stylesheet', href='reset.css')
+        link(rel='stylesheet', href='css/base.css')
+        link(rel='stylesheet', href='css/header.css')
+        link(rel='stylesheet', href='css/caps.css')
+        link(rel='stylesheet', href='css/mentions.css')
+        link(rel='stylesheet', href='css/footer.css')
+    
+    //- Production mode: single minified bundle (includes reset.css)
+    if production
+        link(rel='stylesheet', href='style.min.css')
 
-    //- Dev mode: load individual files
+    //- Dev mode: load individual JS files
     if !production
         script(src='lazyload.js')
         script(src='themes.js')

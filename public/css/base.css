@@ -1,0 +1,24 @@
+:root {
+  --main-bg-color: #F5CB70;
+  --main-color: #6b5931;
+  --text-color: #3B3B3B;
+
+  font-family: 'Bangers', cursive;
+  color: var(--text-color);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+a, a:visited {
+  color: inherit;
+}
+
+.hidden {
+  display: none;
+}
